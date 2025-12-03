@@ -4,14 +4,14 @@ const initialState = {
   },
 }
 
-const mainReducer = (state = { initialState }, action) => {
+const mainReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_FAVOURITES":
       return {
         ...state,
         favourites: {
           ...state.favourites,
-          companies: { ...state.favourites.companies , action.payload },
+          companies: [...state.favourites.companies, action.payload],
         },
       }
     default:
